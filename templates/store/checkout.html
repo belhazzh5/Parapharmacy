@@ -1,0 +1,178 @@
+{% extends "main.html" %}
+{% load static %}
+{% block content %}
+{% load crispy_forms_tags %}
+
+    <!-- Offcanvas Overlay -->
+    <div class="offcanvas-overlay"></div>
+
+    <!-- ...:::: Start Breadcrumb Section:::... -->
+    <div class="breadcrumb-section breadcrumb-bg-color--golden">
+        <div class="breadcrumb-wrapper">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <h3 class="breadcrumb-title">VÉRIFIER</h3>
+                        <div class="breadcrumb-nav breadcrumb-nav-color--black breadcrumb-nav-hover-color--golden">
+                            <nav aria-label="breadcrumb">
+                                <ul>
+                                    <li><a href="{% url 'index' %}">Home</a></li>
+                                    <li><a href="{% url 'store' %}">Shop</a></li>
+                                    <li class="active" aria-current="page">VÉRIFIER</li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> <!-- ...:::: End Breadcrumb Section:::... -->
+
+    <!-- ...:::: Start Checkout Section:::... -->
+    <div class="checkout-section">
+        <div class="container">
+            <div class="row">
+                <!-- User Quick Action Form -->
+                <div class="col-12">
+                    <div class="user-actions accordion" data-aos="fade-up" data-aos-delay="0">
+                        <h3>
+                            <i class="fa fa-file-o" aria-hidden="true"></i>
+                            Déjà client
+                            <a class="Returning" href="{% url 'login' %}" data-bs-toggle="collapse" data-bs-target="#checkout_login"
+                                aria-expanded="true">Cliquez ici pour vous identifier</a>
+                        </h3>
+                        <div id="checkout_login" class="collapse" data-parent="#checkout_login">
+                        </div>
+                    </div>
+                </div>
+                <!-- User Quick Action Form -->
+            </div>
+            <!-- Start User Details Checkout Form -->
+            <div class="checkout_form" data-aos="fade-up" data-aos-delay="400">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6">
+                        {% if form.errors %}
+                        {% for field, errors in form.errors.items %}
+                        {% for error in errors %}
+                        <div class="alert alert-danger" role="alert">
+                            {{error}}
+                        </div>
+                        {% endfor %}               
+                          {% endfor %}               
+                          {% endif %}      
+                        <form action="#" method="post">
+                            {% csrf_token %}
+                            {% if  not user.is_authenticated %}
+                            <h3>DÉTAILS DE LA FACTURATION</h3>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="default-form-box">
+                                        <label for="{{ form.username.id_for_label }}">Prenom</label>
+                                         {{form.username}}
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="default-form-box">
+                                        <label for="{{ form.lastname.id_for_label }}">Nom</label>
+                                        {{form.lastname}}
+                                    </div>
+                                </div>
+                                {% endif %}
+                                <div class="col-12">
+                                    <div class="default-form-box">
+                                        <label for="{{ form.adresse.id_for_label }}">Adresse Livraison</label>
+                                         {{form.adresse}}
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="default-form-box">
+                                        <label for="{{ form.phone.id_for_label }}">Telephone</label>
+                                        {{form.phone}}
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="default-form-box">
+                                        <label for="{{ form.email.id_for_label }}">Email</label>
+                                        {{form.email}}
+                                    </div>
+                                </div>
+
+                                <div class="col-12 mt-3">
+                                    <div class="order-notes">
+                                        <label for="order_note">Notes d'ordre</label>
+                                        <textarea id="order_note"
+                                            placeholder="Remarques concernant votre commande, par ex. notes spéciales pour la livraison."></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="order_button pt-3">
+                                <button class="btn btn-md btn-black-default-hover" type="submit">Commander</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-lg-6 col-md-6">
+                        {% if objects %}         
+         
+                            <h3>VOTRE COMMANDE</h3>
+                            <div class="order_table table-responsive">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Product</th>
+                                            <th>Total</th>
+                                        </tr>
+                                    </thead>
+                                    {% for obj in objects %}
+                                    <tbody>
+                                        <tr>
+                                            <td> {{obj.product.name}} <strong> × {{obj.quantite}}</strong></td>
+
+                                            <td>{{obj.get_items_price|floatformat:3}}DT</td>
+                                        </tr>
+                                        
+                                        {% endfor %}
+                                        <tr>
+                                            <th>Sous-total du panier</th>
+                                            <td>{{totale |floatformat:3}}DT</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Livraison</th>
+                                            <td><strong>7.00DT</strong></td>
+                                        </tr>
+                                        <tr class="order_total">
+                                            <th>Total de la commande</th>
+                                            <td><strong>{{totales|floatformat:3}}DT</strong></td>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                            </div>
+                            <div class="payment_method">
+                                <div class="panel-default">
+                                    <label class="checkbox-default" for="currencyCod" data-bs-toggle="collapse"
+                                    data-bs-target="#methodCod">
+                                    <input type="checkbox" id="currencyCod">
+                                    <span>Paiement à la livraison</span>
+                                </label>
+                                
+                                <div id="methodCod" class="collapse" data-parent="#methodCod">
+                                    <div class="card-body1">
+                                        <p>Veuillez envoyer un chèque au nom du magasin, rue du magasin, ville du magasin, état du magasin
+                                            / Comté, code postal du magasin.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div> <!-- Start User Details Checkout Form -->
+        </div>
+    </div><!-- ...:::: End Checkout Section:::... -->
+
+
+
+
+
+
+{% endblock content %}

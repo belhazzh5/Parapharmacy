@@ -1,0 +1,616 @@
+{% extends "main.html" %}
+{% block content %}
+{% load static %}
+   {% if searched %}
+   <h1>hi its work!</h1>
+   {% endif %}
+
+   {% comment %} {% include 'store/shop-grid-sidebar-left.html' %} {% endcomment %}
+   {% comment %} {% else %} {% endcomment %}
+    <!-- Offcanvas Overlay -->
+    <div class="offcanvas-overlay"></div>
+
+    <!-- Start Hero Slider Section-->
+    <div class="hero-slider-section">
+        <!-- Slider main container -->
+        <div class="hero-slider-active swiper-container">
+            <!-- Additional required wrapper -->
+            <div class="swiper-wrapper">
+                <!-- Start Hero Single Slider Item -->
+                <div class="hero-single-slider-item swiper-slide">
+                    <!-- Hero Slider Image -->
+                    <div class="hero-slider-bg">
+                        <img src="{% static 'images/hero-slider/home-2/hero-slider-1.jpg'%}" alt="">
+                    </div>
+                    <!-- Hero Slider Content -->
+                    <div class="hero-slider-wrapper">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-auto">
+                                    <div class="hero-slider-content">
+                                        <h4 class="subtitle">Made of Fresh Ingredients</h4>
+                                        <h1 class="title">A natural & <br> organic Skincare </h1>
+                                        <a href="{% url 'index' %}" style="color:black" class="btn btn-lg btn-outline-green">shop
+                                            now </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> <!-- End Hero Single Slider Item -->
+                <!-- Start Hero Single Slider Item -->
+                <div class="hero-single-slider-item swiper-slide">
+                    <!-- Hero Slider Image -->
+                    <div class="hero-slider-bg">
+                        <img src="{% static 'images/hero-slider/home-2/hero-slider-2.jpg'%}" alt="">
+                    </div>
+                    <!-- Hero Slider Content -->
+                    <div class="hero-slider-wrapper">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-auto">
+                                    <div class="hero-slider-content">
+                                        <h4 class="subtitle">Premium Facial Skincare</h4>
+                                        <h1 class="title">Fresh Face <br> Natural Skincare</h1>
+                                        <a href="product-details-default.html" class="btn btn-lg btn-outline-green">shop
+                                            now </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> <!-- End Hero Single Slider Item -->
+            </div>
+
+            <!-- If we need pagination -->
+            <div class="swiper-pagination active-color-green"></div>
+
+            <!-- If we need navigation buttons -->
+            <div class="swiper-button-prev d-none d-lg-block"></div>
+            <div class="swiper-button-next d-none d-lg-block"></div>
+        </div>
+    </div>
+    <!-- End Hero Slider Section-->
+
+    <!-- Start Company Logo Section -->
+    <div class="company-logo-section section-top-gap-100 section-fluid">
+        <div class="company-logo-wrapper" data-aos="fade-up" data-aos-delay="0">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="company-logo-slider default-slider-nav-arrow">
+                            <!-- Slider main container -->
+                            <div class="swiper-container company-logo-slider">
+                                <!-- Additional required wrapper -->
+                                <div class="swiper-wrapper">
+                                    <!-- Start Company Logo Single Item -->
+                                    <div class="company-logo-single-item swiper-slide">
+                                        <div class="image"><img class="img-fluid"
+                                                src="{% static 'images/company-logo/company-logo-1.png'%}" alt=""></div>
+                                    </div>
+                                    <!-- End Company Logo Single Item -->
+                                    <!-- Start Company Logo Single Item -->
+                                    <div class="company-logo-single-item swiper-slide">
+                                        <div class="image"><img class="img-fluid"
+                                                src="{% static 'images/company-logo/company-logo-2.png'%}" alt=""></div>
+                                    </div>
+                                    <!-- End Company Logo Single Item -->
+                                    <!-- Start Company Logo Single Item -->
+                                    <div class="company-logo-single-item swiper-slide">
+                                        <div class="image"><img class="img-fluid"
+                                                src="{% static 'images/company-logo/company-logo-3.png'%}" alt=""></div>
+                                    </div>
+                                    <!-- End Company Logo Single Item -->
+                                    <!-- Start Company Logo Single Item -->
+                                    <div class="company-logo-single-item swiper-slide">
+                                        <div class="image"><img class="img-fluid"
+                                                src="{% static 'images/company-logo/company-logo-4.png'%}" alt=""></div>
+                                    </div>
+                                    <!-- End Company Logo Single Item -->
+                                    <!-- Start Company Logo Single Item -->
+                                    <div class="company-logo-single-item swiper-slide">
+                                        <div class="image"><img class="img-fluid"
+                                                src="{% static 'images/company-logo/company-logo-5.png'%}" alt=""></div>
+                                    </div>
+                                    <!-- End Company Logo Single Item -->
+                                    <!-- Start Company Logo Single Item -->
+                                    <div class="company-logo-single-item swiper-slide">
+                                        <div class="image"><img class="img-fluid"
+                                                src="{% static 'images/company-logo/company-logo-6.png'%}" alt=""></div>
+                                    </div>
+                                    <!-- End Company Logo Single Item -->
+                                    <!-- Start Company Logo Single Item -->
+                                    <div class="company-logo-single-item swiper-slide">
+                                        <div class="image"><img class="img-fluid"
+                                                src="{% static 'images/company-logo/company-logo-7.png'%}" alt=""></div>
+                                    </div>
+                                    <!-- End Company Logo Single Item -->
+                                    <!-- Start Company Logo Single Item -->
+                                    <div class="company-logo-single-item swiper-slide">
+                                        <div class="image"><img class="img-fluid"
+                                                src="{% static 'images/company-logo/company-logo-8.png'%}" alt=""></div>
+                                    </div>
+                                    <!-- End Company Logo Single Item -->
+                                </div>
+                            </div>
+                            <!-- If we need navigation buttons -->
+                            <div class="swiper-button-prev d-none d-md-block"></div>
+                            <div class="swiper-button-next d-none d-md-block"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Company Logo Section -->
+
+    <!-- Start Banner Section -->
+    <div class="banner-section section-top-gap-100 section-fluid">
+        <div class="banner-wrapper">
+            <div class="container">
+                <div class="row mb-n6">
+                    <div class="col-md-4 col-12 mb-6">
+                        <!-- Start Banner Single Item -->
+                        <div class="banner-single-item banner-style-5 img-responsive" data-aos="fade-up"
+                            data-aos-delay="0">
+                            <a  class="image banner-animation">
+                                <img src="{% static 'images/banner/banner-style-5-img-1.jpg'%}" alt="">
+                            </a>
+                        </div>
+                        <!-- End Banner Single Item -->
+                    </div>
+                    <div class="col-md-4 col-12 mb-6">
+                        <!-- Start Banner Single Item -->
+                        <div class="banner-single-item banner-style-5 img-responsive" data-aos="fade-up"
+                            data-aos-delay="200">
+                            <a  class="image banner-animation">
+                                <img src="{% static 'images/banner/banner-style-5-img-2.jpg'%}" alt="">
+                            </a>
+                        </div>
+                        <!-- End Banner Single Item -->
+                    </div>
+                    <div class="col-md-4 col-12 mb-6">
+                        <!-- Start Banner Single Item -->
+                        <div class="banner-single-item banner-style-5 img-responsive" data-aos="fade-up"
+                            data-aos-delay="400">
+                            <a  class="image banner-animation">
+                                <img src="{% static 'images/banner/banner-style-5-img-3.jpg'%}" alt="">
+                            </a>
+                        </div>
+                        <!-- End Banner Single Item -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Banner Section -->
+
+    <!-- Start Product Default Slider Section -->
+    <div class="product-default-slider-section section-top-gap-100 section-fluid">
+        <!-- Start Section Content Text Area -->
+        <div class="section-title-wrapper" data-aos="fade-up" data-aos-delay="0">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="section-content-gap">
+                            <div class="secton-content">
+                                <h3 class="section-title">LES NOUVEAUTÉS</h3> 
+                                <a href="#solde"> <h3 class="section-title" style="margin-left:300px;margin-top:-40px">Produits Soldes</h3> </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Start Section Content Text Area -->
+        <div class="product-wrapper" data-aos="fade-up" data-aos-delay="200">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="product-slider-default-1row default-slider-nav-arrow">
+                            <!-- Slider main container -->
+                            {% if news %}
+                            <div class="swiper-container product-default-slider-4grid-1row">
+                                <!-- Additional required wrapper -->
+                                <div class="swiper-wrapper">
+                                    <!-- End Product Default Single Item -->
+                                    <!-- Start Product Default Single Item -->
+                                    {% for med in news %}
+                                    <div class="product-default-single-item product-color--green swiper-slide">
+                                        <div class="image-box">
+                                            <a href="{% url 'detail' med.slug %}" class="image-link">
+                                                {% if med.image %}
+                                                <img src="{{med.image.url}}" alt="{{med.name}}">
+                                                {% endif %}
+                                                {% if med.image1 %}
+                                                <img src="{{med.image1.url}}" alt="{{med.name}}">
+                                                {% endif %}
+                                            </a>
+                                            <div class="action-link">
+                                                <div class="action-link-left">
+                                                    <a href="#" class="update-cart" data-bs-toggle="modal"
+                                                        data-bs-target="#modalAddcart"><button  data-product='{{med.pk}}' data-action="add" class="update-card add" id="update-cart">Add to Cart</button></a>
+                                                </div>
+                                                <div class="action-link-right">
+                                                    <a href="#" data-bs-toggle="modal"
+                                                        data-bs-target="#modalQuickview"><i
+                                                            class="icon-magnifier"></i></a>
+                                                    <a href="wishlist.html"><i class="icon-heart"></i></a>
+                                                    <a href="compare.html"><i class="icon-shuffle"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="content">
+                                            <div class="content-left">
+                                                <h6 class="title"><a href="{% url 'detail' med.slug %}">{{med.name}}</a></h6>
+                                                <ul class="review-star">
+                                                    <li class="fill"><i class="ion-android-star"></i></li>
+                                                    <li class="fill"><i class="ion-android-star"></i></li>
+                                                    <li class="fill"><i class="ion-android-star"></i></li>
+                                                    <li class="fill"><i class="ion-android-star"></i></li>
+                                                    <li class="empty"><i class="ion-android-star"></i></li>
+                                                </ul>
+                                            </div>
+                                            <div class="content-right">
+                                                {% if med.solde %}
+                                                <span><del style="padding-right:5px;color:#ef607c;">{{med.prix}}DT</del>{{med.solding |floatformat:3}}DT</span>                                                
+                                                {% else %}
+                                                <span class="price">{{med.prix}}DT</span>
+                                                {% endif %}
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    {% endfor %}
+                                    <!-- End Product Default Single Item -->
+                                </div>
+                            </div>
+                            {% endif %}
+                            <!-- If we need navigation buttons -->
+                            <div class="swiper-button-prev"></div>
+                            <div class="swiper-button-next"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Product Default Slider Section -->
+
+    <!-- Start Banner Section -->
+    <div class="banner-section section-top-gap-100">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12">
+                    <!-- Start Banner Single Item -->
+                    <div class="banner-single-item banner-style-6 banner-animation img-responsive" data-aos="fade-up"
+                        data-aos-delay="0">
+                        <div class="image">
+                            <img src="{% static 'images/banner/banner-style-6-img-1.jpg'%}" alt="">
+                        </div>
+                        <div class="content">
+                            <h6 class="sub-title">JASMINE GREEN TEA</h6>
+                            <h2 class="title">Herbivore Botanicals
+                                Basic Collection</h2>
+                            <p>On a mission to create all-natural skin care that delivers tangible results, Herbivore
+                                ensures every ingredient within their formulas has a specific purpose, resulting in
+                                highly active.</p>
+                            <a href="product-details-default.html"
+                                class="btn btn-lg btn-outline-green icon-space-left"><span
+                                    class="d-flex align-items-center" style="color:black">Browse <i
+                                        class="ion-ios-arrow-thin-right"></i></span></a>
+                        </div>
+                    </div>
+                    <!-- End Banner Single Item -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Banner Section -->
+
+    <!-- Start Service Section -->
+    <div class="service-promo-section section-top-gap-100">
+        <div class="service-wrapper">
+            <div class="container">
+                <div class="row">
+                    <!-- Start Service Promo Single Item -->
+                    <div class="col-lg-3 col-sm-6 col-12">
+                        <div class="service-promo-single-item" data-aos="fade-up" data-aos-delay="0">
+                            <div class="image">
+                                <img src="{% static 'images/icons/service-promo-5.png'%}" alt="">
+                            </div>
+                            <div class="content">
+                                <h6 class="title">LIVRAISON GRATUITE</h6>
+                                <p>à partir de 99 D</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Service Promo Single Item -->
+                    <!-- Start Service Promo Single Item -->
+                    <div class="col-lg-3 col-sm-6 col-12">
+                        <div class="service-promo-single-item" data-aos="fade-up" data-aos-delay="200">
+                            <div class="image">
+                                <img src="{% static 'images/icons/service-promo-6.png'%}" alt="">
+                            </div>
+                            <div class="content">
+                                <h6 class="title">ORIGINE CONTRÔLÉE</h6>
+                                <p>100% des produits contrôlés par notre pharmacien</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Service Promo Single Item -->
+                    <!-- Start Service Promo Single Item -->
+                    <div class="col-lg-3 col-sm-6 col-12">
+                        <div class="service-promo-single-item" data-aos="fade-up" data-aos-delay="400">
+                            <div class="image">
+                                <img src="{% static 'images/icons/service-promo-7.png'%}" alt="">
+                            </div>
+                            <div class="content">
+                                <h6 class="title">PAIEMENT À LIVRAISON</h6>
+                                <p>dans 48 heures.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Service Promo Single Item -->
+                    <!-- Start Service Promo Single Item -->
+                    <div class="col-lg-3 col-sm-6 col-12">
+                        <div class="service-promo-single-item" data-aos="fade-up" data-aos-delay="600">
+                            <div class="image">
+                                <img src="{% static 'images/icons/hhh.png'%}" alt="">
+                            </div>
+                            <div class="content">
+                                <h6 class="title">SUPPORT TÉLÉPHONIQUE</h6>
+                                <p>24/7 Support.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Service Promo Single Item -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Service Section -->
+
+    <!-- Start Banner Section -->
+    <div class="banner-section section-top-gap-100">
+        <div class="banner-wrapper clearfix">
+            <!-- Start Banner Single Item -->
+            <div class="banner-single-item banner-style-4 banner-animation banner-color--green float-left"
+                data-aos="fade-up" data-aos-delay="0">
+                <div class="image">
+                    <img class="img-fluid" src="{% static 'images/banner/img1.jpg'%}" alt="">
+                </div>
+                <a href="{% url 'store' %}?search=Crème peau normale à mixte" class="content">
+                    <div class="inner">
+                        <h4 class="title">Visage</h4>
+                        <h6 class="sub-title">{{ nbvisage }} Produits</h6>
+                    </div>
+                    <span class="round-btn"><i class="ion-ios-arrow-thin-right"></i></span>
+                </a>
+            </div>
+            <!-- End Banner Single Item -->
+            <!-- Start Banner Single Item -->
+            <div class="banner-single-item banner-style-4 banner-animation banner-color--green float-left"
+                data-aos="fade-up" data-aos-delay="200">
+                <div class="image">
+                    <img class="img-fluid" src="{% static 'images/banner/img2.jpg'%}" alt="">
+                </div>
+                <a href="{% url 'store' %}?search=Ecran Anti taches éclaircissant" class="content">
+                    <div class="inner">
+                        <h4 class="title">Solaire</h4>
+                        <h6 class="sub-title">{{ nbsolaire }} Produits</h6>
+                    </div>
+                    <span class="round-btn"><i class="ion-ios-arrow-thin-right"></i></span>
+                </a>
+            </div>
+            <!-- End Banner Single Item -->
+            <!-- Start Banner Single Item -->
+            <div class="banner-single-item banner-style-4 banner-animation banner-color--green float-left"
+                data-aos="fade-up" data-aos-delay="400">
+                <div class="image">
+                    <img class="img-fluid" src="{% static 'images/banner/ff.jpg'%}" alt="">
+                </div>
+                <a href="{% url 'store' %}?search=ANTI-IRRITATION" class="content">
+                    <div class="inner">
+                        <h4 class="title">Corps</h4>
+                        <h6 class="sub-title">{{ nbcorps }} Produits</h6>
+                    </div>
+                    <span class="round-btn"><i class="ion-ios-arrow-thin-right"></i></span>
+                </a>
+            </div>
+            <!-- End Banner Single Item -->
+            <!-- Start Banner Single Item -->
+            <div class="banner-single-item banner-style-4 banner-animation banner-color--green float-left"
+                data-aos="fade-up" data-aos-delay="600">
+                <div class="image">
+                    <img class="img-fluid" src="{% static 'images/banner/img3.jpg'%}" alt="">
+                </div>
+                <a href="{% url 'store' %}?search=Soin hydratant homme" class="content">
+                    <div class="inner">
+                        <h4>Homme</h4>
+                        <h6>{{ nbhomme }} Produits</h6>
+                    </div>
+                    <span class="round-btn"><i class="ion-ios-arrow-thin-right"></i></span>
+                </a>
+            </div>
+            <!-- End Banner Single Item -->
+        </div>
+    </div>
+    <!-- End Banner Section -->
+
+    <!-- Start Product List View Slider Section -->
+    <div class="product-list-slider-section section-top-gap-100 section-fluid" id="solde">
+        <!-- Start Section Content Text Area -->
+        {% if solded %}        
+        <div class="section-title-wrapper" data-aos="fade-up" data-aos-delay="0">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="section-content-gap">
+                            <div class="secton-content">
+                                <h3 class="section-title">
+                                    PRODUITS SOLDES:</h3>
+                                    
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Start Section Content Text Area -->
+        <div class="product-wrapper" data-aos="fade-up" data-aos-delay="200">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="product-list-slider-3rows default-slider-nav-arrow">
+                            <!-- Slider main container -->
+                            <div class="swiper-container product-listview-slider-4grid-3rows">
+                                <!-- Additional required wrapper -->
+                                <div class="swiper-wrapper">
+                                    <!-- Start Product ListView Single Item -->
+                                    {% for item in solded %}
+                                    {% if item.solde %}                                    
+                                    <div class="product-listview-single-item product-color--green swiper-slide">
+                                        <div class="image-box">
+                                            <a href="{% url 'detail' item.slug %}" class="image-link">
+                                                {% if item.image %}                                                
+                                                <img src="{{item.image.url}}" alt="{{item.name}}">
+                                                {% endif %}
+                                                {% if item.image1 %}                                                
+                                                <img src="{{itme.image1.url}}" alt="{{item.name}}">
+                                                {% endif %}
+                                            </a>
+                                        </div>
+                                        <div class="content">
+                                            <h6 class="title"><a href="{% url 'detail' item.slug %}">{{item.name}}</a></h6>
+                                            <ul class="review-star">
+                                                <li class="fill"><i class="ion-android-star"></i></li>
+                                                <li class="fill"><i class="ion-android-star"></i></li>
+                                                <li class="fill"><i class="ion-android-star"></i></li>
+                                                <li class="fill"><i class="ion-android-star"></i></li>
+                                                <li class="empty"><i class="ion-android-star"></i></li>
+                                            </ul>
+                                            <span class="price"> <del style="padding-right:5px">{{item.prix|floatformat:3}}DT</del><span style="color:#047B42;">{{item.solding|floatformat:3}}DT</span></span>
+                                        </div>
+                                    </div>
+                                    {% endif %}
+                                    {% endfor %}
+                                    </div>
+                                    <!-- End Product ListView Single Item -->
+                                </div>
+                            </div>
+                            <!-- If we need navigation buttons -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Product List View Slider Section -->
+    {% endif %}
+
+    <!-- Start Banner Section -->
+    <div class="banner-section section-top-gap-100">
+        <div class="banner-wrapper clearfix">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <!-- Start Banner Single Item -->
+                        <div class="banner-single-item banner-style-13 banner-color--green" data-aos="fade-up"
+                            data-aos-delay="0">
+                            <div class="image">
+                                <img src="{% static 'images/banner/banner-style-13-img-1.jpg'%}" alt="">
+                                <div class="content">
+                                    <div class="text">
+                                        <h5 class="sub-title">SALE 15% OFF YOUR 1ST PURCHASE</h5>
+                                        <h2 class="title">HONO ORGANIC SKIN CARE</h2>
+
+                                        <a href="{% url 'detail' creme.slug %}"
+                                            class="btn btn-lg btn-green icon-space-left"><span
+                                                class="d-flex align-items-center">Shop Now <i
+                                                    class="ion-ios-arrow-thin-right"></i></span></a>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <!-- End Banner Single Item -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% comment %} {% endif %} {% endcomment %}
+    <!-- End Banner Section -->
+
+    <!-- Start Blog Slider Section -->
+    <div class="blog-default-slider-section section-top-gap-100 section-fluid">
+        <!-- Start Section Content Text Area -->
+        <div class="section-title-wrapper" data-aos="fade-up" data-aos-delay="0">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="section-content-gap">
+                            <div class="secton-content">
+                                <h3 class="section-title">THE LATEST BLOGS</h3>
+                                <p>Present posts in a best way to highlight interesting moments of your blog.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Start Section Content Text Area -->
+        <div class="blog-wrapper" data-aos="fade-up" data-aos-delay="200">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="blog-default-slider default-slider-nav-arrow">
+                            <!-- Slider main container -->
+                            <div class="swiper-container blog-slider">
+                                <!-- Additional required wrapper -->
+                                <div class="swiper-wrapper">
+                                    <!-- Start Product Default Single Item -->
+                                    <div class="blog-default-single-item blog-color--green swiper-slide">
+                                        <div class="image-box">
+                                            <a href="blog-single-sidebar-left.html" class="image-link">
+                                                <img class="img-fluid"
+                                                    src="assets/images/blog/blog-grid-home-1-img-1.jpg" alt="">
+                                            </a>
+                                        </div>
+                                        <div class="content">
+                                            <h6 class="title"><a href="blog-single-sidebar-left.html">Blog Post One</a>
+                                            </h6>
+                                            <p>Donec vitae hendrerit arcu, sit amet faucibus nisl. Cras pretium arcu ex.
+                                                Aenean posuere libero eu augue condimentum rhoncus. Praesent</p>
+                                            <div class="inner">
+                                                <a href="blog-single-sidebar-left.html"
+                                                    class="read-more-btn icon-space-left">Read More <span><i
+                                                            class="ion-ios-arrow-thin-right"></i></span></a>
+                                                <div class="post-meta">
+                                                    <a href="#" class="date">24 Apr</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- End Product Default Single Item -->
+                     
+                                    <!-- End Product Default Single Item -->
+                                </div>
+                            </div>
+                            <!-- If we need navigation buttons -->
+                            <div class="swiper-button-prev"></div>
+                            <div class="swiper-button-next"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Blog Slider Section -->
+
+    
+    {% endblock content %}

@@ -1,0 +1,310 @@
+{% extends "main.html" %}
+{% load static %}
+{% block content %}
+    <!-- Offcanvas Overlay -->
+    {% if user.is_staff %}
+    <a style="padding:25px" href="{% url 'update' obj.slug %}"> <span><i class="fas fa-edit fa-3x"></i></span></a>
+    <a style="padding:25px" href="{% url 'delete' obj.slug %}"><i class="fa fa-trash fa-3x" aria-hidden="true"></i></a>    
+    {% endif %}
+
+    <div class="offcanvas-overlay"></div>
+
+    <!-- ...:::: Start Breadcrumb Section:::... -->
+    <div class="breadcrumb-section breadcrumb-bg-color--golden">
+        <div class="breadcrumb-wrapper">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <h3 class="breadcrumb-title">DÉTAILS DU PRODUIT</h3>
+                        <div class="breadcrumb-nav breadcrumb-nav-color--black breadcrumb-nav-hover-color--golden">
+                            <nav aria-label="breadcrumb">
+                                <ul>
+                                    <li><a href="#">Home</a></li>
+                                    <li><a href="#">MAGAZINEp</a></li>
+                                    <li class="active" aria-current="page">DÉTAILS DU PRODUITt</li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> <!-- ...:::: End Breadcrumb Section:::... -->
+
+    <!-- Start Product Details Section -->
+    <div class="product-details-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-5 col-lg-6">
+                    <div class="product-details-gallery-area" data-aos="fade-up" data-aos-delay="0">
+                        <!-- Start Large Image -->
+                        <div class="product-large-image product-large-image-horaizontal swiper-container">
+                            <div class="swiper-wrapper">
+                                <div class="product-image-large-image swiper-slide zoom-image-hover img-responsive">
+                                    <img src="{{obj.image.url}}" alt="{{obj.name}}">
+                                </div>
+                                <div class="product-image-large-image swiper-slide zoom-image-hover img-responsive">
+                                    <img src="{{obj.image.url}}" alt="{{obj.name}}">
+                                </div>
+                                <div class="product-image-large-image swiper-slide zoom-image-hover img-responsive">
+                                    <img src="{{obj.image.url}}" alt="{{obj.name}}">
+                                </div>
+                                <div class="product-image-large-image swiper-slide zoom-image-hover img-responsive">
+                                    <img src="{{obj.image.url}}" alt="{{obj.name}}">
+                                </div>
+                                <div class="product-image-large-image swiper-slide zoom-image-hover img-responsive">
+                                    <img src="{{obj.image.url}}" alt="{{obj.name}}">
+                                </div>
+                                <div class="product-image-large-image swiper-slide zoom-image-hover img-responsive">
+                                    <img src="{{obj.image.url}}" alt="{{obj.name}}">
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Large Image -->
+                        <!-- Start Thumbnail Image -->
+                        <div class="product-image-thumb product-image-thumb-horizontal swiper-container pos-relative mt-5">
+                            <!-- Add Arrows -->
+                            <div class="gallery-thumb-arrow swiper-button-next"></div>
+                            <div class="gallery-thumb-arrow swiper-button-prev"></div>
+                        </div>
+                        <!-- End Thumbnail Image -->
+                    </div>
+                </div>
+                <div class="col-xl-7 col-lg-6">
+                    <div class="product-details-content-area product-details--golden" data-aos="fade-up"
+                        data-aos-delay="200">
+                        <!-- Start  Product Details Text Area-->
+                        <div class="product-details-text">
+                            <h4 class="title">{{obj.name|capfirst}}</h4>
+                            <div class="d-flex align-items-center">
+                                <ul class="review-star">
+                                    <li class="fill"><i class="ion-android-star"></i></li>
+                                    <li class="fill"><i class="ion-android-star"></i></li>
+                                    <li class="fill"><i class="ion-android-star"></i></li>
+                                    <li class="fill"><i class="ion-android-star"></i></li>
+                                    <li class="empty"><i class="ion-android-star"></i></li>
+                                </ul>
+                                <a href="#" class="customer-review ml-2">(customer review )</a>
+                            </div>
+                            {% if obj.solde %}
+                            <div class="price"> <del style="margin-right:5px;color:#ef607c;">{{obj.prix}}</del> {{obj.solding|floatformat:3}}DT</div>
+                            {% else %}
+                            <div class="price">{{obj.prix}}DT</div>
+                            {% endif %}
+                            <p>{{ obj.description|slice:":500" }}</p>
+                        </div> <!-- End  Product Details Text Area-->
+                        <!-- Start Product Variable Area -->
+                        <div class="product-details-variable">
+                            <h4 class="title">Available Options</h4>
+                            <!-- Product Variable Single Item -->
+                            <div class="variable-single-item">
+                                <div class="product-stock"> <span class="product-stock-in"><i
+                                            class="ion-checkmark-circled"></i></span> 200 IN STOCK</div>
+                            </div>
+                            <!-- Product Variable Single Item -->
+                            <div class="d-flex align-items-center ">
+                                <div class="variable-single-item ">
+                                    <span>Quantity</span>
+                                    <div class="product-variable-quantity">
+                                        <input min="1" max="100" value="1" type="number">
+                                    </div>
+                                </div>
+
+                                <div class="product-add-to-cart-btn">
+                                    <a href="#" class="btn btn-block btn-lg btn-black-default-hover"
+                                        data-bs-toggle="modal" data-bs-target="#modalAddcart"><button  data-product='{{obj.pk}}' data-action="add" class="update-card add">+ Add To Cart</button></a>
+                                </div>
+                            </div>
+                            <!-- Start  Product Details Meta Area-->
+                            <div class="product-details-meta mb-20">
+                            </div> <!-- End  Product Details Meta Area-->
+                        </div> <!-- End Product Variable Area -->
+
+                        <!-- Start  Product Details Catagories Area-->
+                        <div class="product-details-catagory mb-2">
+                            <span class="title">CATEGORIES:</span>
+                            <ul>
+                                <li><a href="#">{{obj.subcategorye}}</a></li>
+                                {% for cat in obj.subcategory.all %}
+                                <li><a href="#">{{cat.name}}</a></li>
+                                {% endfor %}
+                            </ul>
+                        </div> <!-- End  Product Details Catagories Area-->
+                        <!-- Start  Product Details Social Area-->
+                        <div class="product-details-social">
+                            <span class="title">SHARE THIS PRODUCT:</span>
+                            <ul>
+                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
+                                <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                                <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                            </ul>
+                        </div> <!-- End  Product Details Social Area-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> <!-- End Product Details Section -->
+
+    <!-- Start Product Content Tab Section -->
+    <div class="product-details-content-tab-section section-top-gap-100">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="product-details-content-tab-wrapper" data-aos="fade-up" data-aos-delay="0">
+
+                        <!-- Start Product Details Tab Button -->
+                        <ul class="nav tablist product-details-content-tab-btn d-flex justify-content-center">
+                            <li><a class="nav-link active" data-bs-toggle="tab" href="#description">
+                                    Description
+                                </a></li>
+                            <li><a class="nav-link" data-bs-toggle="tab" href="#specification">
+                                    Specification
+                                </a></li>
+     
+                        </ul> <!-- End Product Details Tab Button -->
+
+                        <!-- Start Product Details Tab Content -->
+                        <div class="product-details-content-tab">
+                            <div class="tab-content">
+                                <!-- Start Product Details Tab Content Singel -->
+                                <div class="tab-pane active show" id="description">
+                                    <div class="single-tab-content-item">
+                                        <p>{{obj.description}}</p>
+                                    </div>
+                                </div> <!-- End Product Details Tab Content Singel -->
+                                <!-- Start Product Details Tab Content Singel -->
+                                <div class="tab-pane" id="specification">
+                                    <div class="single-tab-content-item">
+                                        <table class="table table-bordered mb-20">
+                                            <tbody>
+                                                <tr>
+                                                    <th scope="row">Compositions</th>
+                                                    <td>{{obj.subcategorye}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">Styles</th>
+                                                    {% for cat in obj.subcategorye.all %}
+                                                    <td>{{cat}}</td>
+                                                    {% endfor %}
+                                                <tr>
+                                                    <th scope="row">Properties</th>
+                                                    {% for ca in obj.subcategorye.first %}
+                                                    <td>{{cat.name}}</td>
+                                                    {% endfor %}
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <p>Fashion has been creating well-designed collections since 2010. The brand
+                                            offers feminine designs delivering stylish separates and statement dresses
+                                            which have since evolved into a full ready-to-wear collection in which every
+                                            item is a vital part of a woman's wardrobe. The result? Cool, easy, chic
+                                            looks with youthful elegance and unmistakable signature style. All the
+                                            beautiful pieces are made in Italy and manufactured with the greatest
+                                            attention. Now Fashion extends to a range of accessories including shoes,
+                                            hats, belts and more!</p>
+                                    </div>
+                                </div> <!-- End Product Details Tab Content Singel -->
+                            </div>
+                        </div> <!-- End Product Details Tab Content -->
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> <!-- End Product Content Tab Section -->
+
+    <!-- Start Product Default Slider Section -->
+    {% if similaire %}
+    <div class="product-default-slider-section section-top-gap-100 section-fluid">
+        <!-- Start Section Content Text Area -->
+        <div class="section-title-wrapper" data-aos="fade-up" data-aos-delay="0">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="section-content-gap">
+                            <div class="secton-content">
+                                <h3 class="section-title">RELATED PRODUCTS</h3>
+                                <p>Browse the collection of our related products.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Start Section Content Text Area -->
+        <div class="product-wrapper" data-aos="fade-up" data-aos-delay="0">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="product-slider-default-1row default-slider-nav-arrow">
+                            <!-- Slider main container -->
+                            <div class="swiper-container product-default-slider-4grid-1row">
+                                <!-- Additional required wrapper -->
+                                <div class="swiper-wrapper">
+                                    <!-- End Product Default Single Item -->
+                                    <!-- Start Product Default Single Item -->
+                                    {% for med in similaire %}
+                                    {% if med != obj%}
+                                    <div class="product-default-single-item product-color--golden swiper-slide">
+                                        <div class="image-box">
+                                            <a href="{% url 'detail' med.slug %}" class="image-link">
+                                                <img src="{{med.image.url}}" alt="">
+                                                {% if med.image1.url %}
+                                                <img src="{{med.image.url}}" alt="">                                               
+                                                {% endif %}
+                                            </a>
+                                            <div class="action-link">
+                                                <div class="action-link-left">
+                                                    <a href="#" data-bs-toggle="modal"
+                                                        data-bs-target="#modalAddcart"><button  data-product='{{med.pk}}' data-action="add" class="update-card add">Add to Cart</button></a>
+                                                </div>
+                                                <div class="action-link-right">
+                                                    <a href="#" data-bs-toggle="modal"
+                                                        data-bs-target="#modalQuickview"><i
+                                                            class="icon-magnifier"></i></a>
+                                                    <a href="wishlist.html"><i class="icon-heart"></i></a>
+                                                    <a href="compare.html"><i class="icon-shuffle"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="content">
+                                            <div class="content-left">
+                                                <h6 class="title"><a href="{% url 'detail' med.slug %}">{{med.name}}</a></h6>
+                                                <ul class="review-star">
+                                                    <li class="fill"><i class="ion-android-star"></i></li>
+                                                    <li class="fill"><i class="ion-android-star"></i></li>
+                                                    <li class="fill"><i class="ion-android-star"></i></li>
+                                                    <li class="fill"><i class="ion-android-star"></i></li>
+                                                    <li class="empty"><i class="ion-android-star"></i></li>
+                                                </ul>
+                                            </div>
+                                            <div class="content-right">
+                                                {% if med.solde %}
+                                                <span class="price"><del style="margin-right:5px;color:#ef607c">{{med.prix}}DT</del>{{ med.solding|floatformat:3 }}DT</span>
+                                                {% else %}
+                                                <span class="price">{{med.prix}}DT</span>
+                                                {% endif %}
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    {% endif %}
+                                    {% endfor %}
+                                    {% endif %}
+                                    <!-- End Product Default Single Item -->
+                                </div>
+                            </div>
+                            <!-- If we need navigation buttons -->
+                            <div class="swiper-button-prev"></div>
+                            <div class="swiper-button-next"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Product Default Slider Section -->
+
+{% endblock content%}

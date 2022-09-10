@@ -1,0 +1,354 @@
+{% load static %}
+
+<header class="header-section d-none d-xl-block">
+    
+    <div class="header-wrapper">
+        <!-- Start Header Top -->
+        <div class="header-top header-top-bg--black section-fluid">
+            <div class="container">
+                <div class="col-12 d-flex align-items-center justify-content-between">
+                    <div class="header-top-left">
+                        <div
+                            class="header-top-contact header-top-contact-color--white header-top-contact-hover-color--green">
+                            <a href="tel:0123456789" class="icon-space-right"><i
+                                    class="icon-call-in"></i>0123456789</a>
+                            <a href="mailto:demo@example.com" class="icon-space-right"><i
+                                    class="icon-envelope"></i>demo@example.com</a>
+                        </div>
+                    </div>
+                    <div class="header-top-right">
+                        <div
+                            class="header-top-user-link header-top-user-link-color--white header-top-user-link-hover-color--green">
+                            <ul class="footer-social-link">
+                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                                <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Header Top -->
+        <!-- Start Header Bottom -->
+        <div style="z-index:999999" class="header-bottom header-bottom-color--green section-fluid sticky-header sticky-color--white">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 d-flex align-items-center justify-content-between">
+                        <!-- Start Header Logo -->
+                        <div class="header-logo">
+                            <div class="logo">
+                                <a href="{% url 'index' %}"><img src="{% static 'images/logo/4.png'%}" alt=""></a>
+                            </div>
+                        </div>
+                        <!-- End Header Logo -->
+
+                        <!-- Start Header Main Menu -->
+                        <div class="main-menu menu-color--black menu-hover-color--green">
+                            <div class="alert alert-success" id="success-alert" > 
+                                <button type="button" class="close" data-dismiss="alert">x</button>
+                                <strong>Ajouter! </strong> Produit est ajouter a votre carts.
+                              </div>
+                              <div class="alert alert-warning" id="danger-alert" > 
+                                <button type="button" class="close" data-dismiss="alert">x</button>
+                                <strong>Supprimer</strong> produit est supprimer de votre cart.
+                              </div>
+                            <nav style="z-index:99999999999">
+                                {% if cats %}
+                                
+                                <ul>
+                                    {% for cat in cats %}
+                                    <li class="has-dropdown has-megaitem">
+                                        <a href="product-details-default.html">{{cat.name}}<i
+                                                class="fa fa-angle-down"></i></a>
+                                        <!-- Mega Menu -->
+                                        <div class="mega-menu">
+                                            <ul class="mega-menu-inner">
+                                                <!-- Mega Menu Sub Link -->
+                                                {% for ca in cat.subcategory.all %}
+                                                <li class="mega-menu-item">
+                                                    <a href="#" class="mega-menu-item-title">{{ca.name}}</a>
+                                                    <ul class="mega-menu-sub">
+                                                        {% for c in ca.subcategorye.all %}
+                                                        <li><a href="{% url 'store' %}?search={{c.name}}">{{c.name}}</a></li>
+                                                    {% endfor %}
+                                                    </ul>
+                                                </li>
+                                                {% endfor %}
+                                            </ul>
+                                            {% if cat.image %}                                                    
+                                            <div class="menu-banner">
+                                                <a href="#" class="menu-banner-link">
+                                                    <img class="menu-banner-img"
+                                                    src="{{cat.image.url}}" alt="{{cat.name}}">
+                                                </a>
+                                            </div>
+                                            {% endif %}
+                                        </div>
+                                    </li>
+                                    {% endfor %}
+                                {% endif %}
+                                {% if user.is_staff %}
+                <li><a href="{% url 'create' %}">Ajouter Produit</li>
+                    {% endif %}
+                                </ul>
+                            </nav>
+                        </div>
+                        <!-- End Header Main Menu Start -->
+
+                        <!-- Start Header Action Link -->
+                        <ul class="header-action-link action-color--black action-hover-color--green">
+                            <li style="margin-right: 20px;display: flex;align-items: center;">
+                                {% if user.is_authenticated %}
+                                <img src="{% static 'images/women-avatar.webp' %}" alt="{{user.username}}" style="margin-right:5px;height: 45px;border-radius: 50%;width: 50px;">
+                                <div><a href="#" style="font-size: 15px;letter-spacing: 0px;margin-right:5px">{{user.username}}</a></div>
+                                <div><a href="{% url 'logout' %}" style="color:#0e8ce4;color: #0e8ce4;letter-spacing: 0;font-size: 15px;">Deconnexion</a></div>
+                                
+                                {% else %}
+                                <div class="user_icon"><img src="{% static 'images/user.svg' %}" style="height:20px;width:20px" alt=""></div>
+                                <div><a href="{% url 'register' %}" style="font-size: 15px;letter-spacing: 0px;margin-right:7px">Inscription</a></div>
+                                <div><a href="{% url 'login' %}" style="font-size: 15px;letter-spacing: 0px;"><strong>Connexion</strong></a></div>
+                                
+                                {% endif %}
+                            </li>
+                            <li style="margin-right:30px">
+                                <a href="#offcanvas-add-cart" class="offcanvas-toggle">
+                                    <i class="icon-bag"></i>
+                                    <span class="item-count" id="item-count" style="position:absolute;">{{nb_items}}</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#search">
+                                    <i class="icon-magnifier"></i>
+                                </a>
+                            </li>
+                        </ul>
+                        <!-- End Header Action Link -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Header Bottom -->
+    </div>
+</header>
+
+<!-- Start Mobile Header -->
+<div class="mobile-header mobile-header-bg-color--white section-fluid d-lg-block d-xl-none">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 d-flex align-items-center justify-content-between">
+                <!-- Start Mobile Left Side -->
+                <div class="mobile-header-left">
+                    <ul class="mobile-menu-logo">
+                        <li>
+                            <a href="index.html">
+                                <div class="logo">
+                                    <img src="{% static 'images/logo/logo_black.png'%}" alt="">
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- End Mobile Left Side -->
+
+                <!-- Start Mobile Right Side -->
+                <div class="mobile-right-side">
+                    <ul class="header-action-link action-color--black action-hover-color--green">
+                        <li>
+                            <a href="#search">
+                                <i class="icon-magnifier"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#offcanvas-wishlish" class="offcanvas-toggle">
+                                <i class="icon-heart"></i>
+                                <span class="item-count">3</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{% url 'cart' %}" class="">
+                                <i class="icon-bag"></i>
+                                <span class="item-count">{{nb_items}}</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#mobile-menu-offcanvas" class="offcanvas-toggle offside-menu">
+                                <i class="icon-menu"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- End Mobile Right Side -->
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Mobile Header -->
+
+<!--  Start Offcanvas Mobile Menu Section -->
+<div id="mobile-menu-offcanvas" class="offcanvas offcanvas-rightside offcanvas-mobile-menu-section">
+    <!-- Start Offcanvas Header -->
+    <div class="offcanvas-header text-right">
+        <button class="offcanvas-close"><i class="ion-android-close"></i></button>
+    </div> <!-- End Offcanvas Header -->
+    <!-- Start Offcanvas Mobile Menu Wrapper -->
+    <div class="offcanvas-mobile-menu-wrapper">
+        <!-- Start Mobile Menu  -->
+        <div class="mobile-menu-bottom">
+            <!-- Start Mobile Menu Nav -->
+            <div class="offcanvas-menu">
+                {% if cats %}
+                <ul>
+                    {% for cat in cats %}
+                    <li>
+                        <a href="#"><span>{{cat.name}}</span></a>
+                        <ul class="mobile-sub-menu">
+                    {% for ca in cat.subcategory.all %}
+                            <li>
+                                <a href="#">{{ca.name}}</a>
+                                <ul class="mobile-sub-menu">
+                        {% for c in ca.subcategorye.all %}
+                                    <li><a href="{% url 'store' %}?search={{c.name}}">{{c.name}}</a></li>
+                                    {% endfor %}
+                                </ul>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </li>
+                {% endfor %}
+                {% if user.is_staff %}
+                <li><a href="{% url 'create' %}">Ajouter Produit</li>
+                    {% endif %}
+                </ul>
+                {% endif %}
+            </div> <!-- End Mobile Menu Nav -->
+        </div> <!-- End Mobile Menu -->
+
+        <!-- Start Mobile contact Info -->
+        <div class="mobile-contact-info">
+            <div class="logo">
+                <a href="index.html"><img src="{% static 'images/logo/logo_white.png'%}" alt=""></a>
+            </div>
+
+            <address class="address">
+                <span>Address: Your address goes here.</span>
+                <span>Call Us: 0123456789, 0123456789</span>
+                <span>Email: demo@example.com</span>
+            </address>
+
+            <ul class="social-link">
+                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+            </ul>
+
+            <ul class="user-link">
+                <li><a href="wishlist.html">Wishlist</a></li>
+                <li><a href="cart.html">Cart</a></li>
+                <li><a href="checkout.html">Checkout</a></li>
+            </ul>
+        </div>
+        <!-- End Mobile contact Info -->
+
+    </div> <!-- End Offcanvas Mobile Menu Wrapper -->
+</div> <!-- ...:::: End Offcanvas Mobile Menu Section:::... -->
+
+
+
+
+<!-- Start Offcanvas Mobile Menu Section -->
+<div id="offcanvas-about" class="offcanvas offcanvas-rightside offcanvas-mobile-about-section">
+    <!-- Start Offcanvas Header -->
+    <div class="offcanvas-header text-right">
+        <button class="offcanvas-close"><i class="ion-android-close"></i></button>
+    </div> <!-- End Offcanvas Header -->
+    <!-- Start Offcanvas Mobile Menu Wrapper -->
+    <!-- Start Mobile contact Info -->
+    <div class="mobile-contact-info">
+        <div class="logo">
+            <a href="index.html"><img src="{% static 'images/logo/logo_white.png'%}" alt=""></a>
+        </div>
+
+        <address class="address">
+            <span>Address: Your address goes here.</span>
+            <span>Call Us: 0123456789, 0123456789</span>
+            <span>Email: demo@example.com</span>
+        </address>
+
+        <ul class="social-link">
+            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+            <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+        </ul>
+
+        <ul class="user-link">
+            <li><a href="wishlist.html">Wishlist</a></li>
+            <li><a href="cart.html">Cart</a></li>
+            <li><a href="checkout.html">Checkout</a></li>
+        </ul>
+    </div>
+    <!-- End Mobile contact Info -->
+</div> <!-- ...:::: End Offcanvas Mobile Menu Section:::... -->
+
+<div id="offcanvas-add-cart" class="offcanvas offcanvas-rightside offcanvas-add-cart-section">
+    <!-- Start Offcanvas Header -->
+    <div class="offcanvas-header text-right">
+        <button class="offcanvas-close"><i class="ion-android-close"></i></button>
+    </div> <!-- End Offcanvas Header -->
+
+    <!-- Start  Offcanvas Addcart Wrapper -->
+    <div class="offcanvas-add-cart-wrapper">
+        <h4 class="offcanvas-title">Shopping Cart</h4>
+        <ul class="offcanvas-cart">
+            {% if objects %}
+            {% for obj in objects %}             
+            <li class="offcanvas-cart-item-single">
+                <div class="offcanvas-cart-item-block">
+                    <a href="#" class="offcanvas-cart-item-image-link">
+                        <img src="{{ obj.product.image.url }}" alt="{{ obj.product.name }}"
+                            class="offcanvas-cart-image">
+                    </a>
+                    <div class="offcanvas-cart-item-content">
+                        <a href="" class="offcanvas-cart-item-link">{{ obj.product.name }}</a>
+                        <div class="offcanvas-cart-item-details">
+                            <span class="offcanvas-cart-item-details-quantity">{{ obj.quantite }} x </span>
+                            {% if obj.product.solde %}
+                            <span class="offcanvas-cart-item-details-price">{{ obj.product.solding|floatformat:3 }}DT</span>
+                            {% endif %}
+                            <span class="offcanvas-cart-item-details-price">{{ obj.product.prix }}DT</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="offcanvas-cart-item-delete text-right">
+                    <button class="product_remove"> <a href="" data-product="{{obj.product.id}}" class="btn btn-light update-card remove" data-action="remove" style="color:white;" type="submit" data-abc="true"><i style="color:red;" class="fa fa-trash-o"></i></a></button>
+                   
+                </div>
+            </li>
+
+    </ul>
+        <div class="offcanvas-cart-total-price">
+            <span class="offcanvas-cart-total-price-text">Total:</span>
+            <span class="offcanvas-cart-total-price-value">{{obj.get_items_price|floatformat:3}}DT</span>
+        </div>
+        
+      {% endfor %}
+      {% endif %}
+        <ul class="offcanvas-cart-action-button">
+            <li><a href="{% url 'cart' %}" class="btn btn-block btn-green">View Cart</a></li>
+            <li><a href="{% url 'checkout' %}" class=" btn btn-block btn-green mt-5">Checkout</a></li>
+        </ul>
+    </div> <!-- End  Offcanvas Addcart Wrapper -->
+
+</div> 
+<!-- Start Offcanvas Search Bar Section -->
+<div id="search" class="search-modal">
+    <button type="button" class="close">×</button>
+    <form>
+        <input type="search" name="search" placeholder="type keyword(s) here" />
+        <button type="submit" class="btn btn-lg btn-green">Search</button>
+    </form>
+</div>
+<!-- End Offcanvas Search Bar Section -->
